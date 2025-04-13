@@ -2,35 +2,64 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <!-- FONDAMENTALE per mobile -->
+
+    <!-- Imposta la viewport per i dispositivi mobili:
+         - width=device-width: Usa la larghezza dello schermo del dispositivo.
+         - initial-scale=1.0: Imposta lo zoom iniziale al 100%.
+         - maximum-scale=1.0, user-scalable=no: Blocca lo zoom manuale dell'utente.
+         Questo assicura che la dimensione sia controllata dallo script e non dall'utente.
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Gioco del Panino</title>
+
+    <!-- Inclusione della libreria p5.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+
     <style>
-      /* Stili per adattamento mobile */
+      /* Reset base e impostazioni globali */
       html, body {
         margin: 0;
         padding: 0;
-        overflow: hidden; /* Impedisce lo scrolling della pagina */
-        background-color: #333; /* Sfondo esterno al canvas */
-        overscroll-behavior: none; /* Impedisce il "bounce" su iOS/Android */
+        /* Impedisce lo scrolling della pagina se il canvas fosse troppo grande */
+        overflow: hidden;
+        /* Colore di sfondo FUORI dall'area del gioco (letterboxing/pillarboxing) */
+        background-color: #333;
+        /* Disabilita azioni touch di default (zoom, pan) sul body */
+        touch-action: none;
+        overscroll-behavior: none; /* Impedisce il "bounce" scroll su mobile */
       }
-      /* Centra il canvas nella pagina */
+
+      /* Configura il body per centrare il suo contenuto (il canvas) */
       body {
+        /* Fa sì che il body occupi l'intera finestra del browser */
+        min-height: 100vh;
+        width: 100vw;
+        /* Usa Flexbox per centrare il canvas */
         display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh; /* Assicura che body occupi l'intera altezza */
-        touch-action: none; /* Disabilita azioni touch di default sul body (come zoom/pan) */
+        justify-content: center; /* Centra orizzontalmente */
+        align-items: center;    /* Centra verticalmente */
       }
+
+      /* Stili specifici per il canvas creato da p5.js */
       canvas {
-         display: block; /* Rimuove spazio extra sotto il canvas */
-         touch-action: none; /* Disabilita azioni touch di default sul canvas */
+         /* Rimuove eventuale spazio extra sotto il canvas inline */
+         display: block;
+         /* Opzionale: forza il canvas a non superare mai la dimensione del suo contenitore (body).
+            Normalmente non serve se sketch.js calcola correttamente le dimensioni. */
+         /* max-width: 100%; */
+         /* max-height: 100%; */
       }
     </style>
   </head>
   <body>
-    <!-- p5.js crea il canvas qui -->
-    <script src="sketch.js"></script>
+    <!-- p5.js creerà l'elemento <canvas> qui dentro.
+         Grazie alle regole CSS sul body, il canvas verrà automaticamente
+         centrato verticalmente e orizzontalmente.
+         La dimensione del canvas sarà determinata da sketch.js per adattarsi
+         alla finestra, mantenendo le proporzioni. -->
+
+    <!-- Inclusione dello script del gioco. 'defer' è buona pratica. -->
+    <script src="sketch.js" defer></script>
   </body>
 </html>
