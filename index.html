@@ -4,11 +4,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gioco del Panino</title>
-    <link rel="stylesheet" type="text/css" href="style.css"> // Opzionale: se hai uno style.css
-    <script src="libraries/p5.min.js"></script> // Assicurati che il percorso sia corretto!
-    <!-- <script src="libraries/p5.sound.min.js"></script> --> // Se usi il suono
+    <!-- Carica la libreria p5.js da CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <!-- Potresti voler caricare anche p5.sound.min.js se usi suoni -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script> -->
+    <style>
+      /* Stili base per rimuovere margini e scrollbar */
+      html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Evita scrollbar se il canvas è più grande */
+        background-color: #f0f0f0; /* Colore di sfondo della pagina, se vuoi */
+      }
+    </style>
   </head>
   <body>
-    <script src="sketch.js"></script> // Carica il tuo sketch
+    <!-- Carica il tuo sketch -->
+    <script src="sketch.js"></script>
   </body>
 </html>
