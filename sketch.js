@@ -506,7 +506,7 @@ function updateMessageAfterAction() {
     } else if (heldItem === container) {
          message = "Metti il contenitore 'Lobster Roll' sul tavolo.";
     } else if (bread.isCooked && !bread.isFilled && !container.isOnTable && drawer.isOpen) {
-         message = "Prendi il contenitore (🥣) dal cassetto.";
+         message = "Prendi il contenitore (🥣) dal cassetto e mettilo sul tavolo.";
     } else if (bread.isCooked && !bread.isFilled && !container.isOnTable && !drawer.isOpen) {
          message = "Pane pronto! ♨️ Apri il cassetto.";
     } else if (heldItem === plate) {
