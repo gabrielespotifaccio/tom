@@ -2,24 +2,35 @@
 <html lang="it">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONDAMENTALE per mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Gioco del Panino</title>
-    <!-- Carica la libreria p5.js da CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
-    <!-- Potresti voler caricare anche p5.sound.min.js se usi suoni -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script> -->
     <style>
-      /* Stili base per rimuovere margini e scrollbar */
+      /* Stili per adattamento mobile */
       html, body {
         margin: 0;
         padding: 0;
-        overflow: hidden; /* Evita scrollbar se il canvas è più grande */
-        background-color: #f0f0f0; /* Colore di sfondo della pagina, se vuoi */
+        overflow: hidden; /* Impedisce lo scrolling della pagina */
+        background-color: #333; /* Sfondo esterno al canvas */
+        overscroll-behavior: none; /* Impedisce il "bounce" su iOS/Android */
+      }
+      /* Centra il canvas nella pagina */
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Assicura che body occupi l'intera altezza */
+        touch-action: none; /* Disabilita azioni touch di default sul body (come zoom/pan) */
+      }
+      canvas {
+         display: block; /* Rimuove spazio extra sotto il canvas */
+         touch-action: none; /* Disabilita azioni touch di default sul canvas */
       }
     </style>
   </head>
   <body>
-    <!-- Carica il tuo sketch -->
+    <!-- p5.js crea il canvas qui -->
     <script src="sketch.js"></script>
   </body>
 </html>
